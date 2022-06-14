@@ -6,6 +6,11 @@
 #include "GameFramework/Actor.h"
 #include "Lever.generated.h"
 
+class ALeverplayerCharacter;
+class ADoor;
+class UStaticMeshComponent;
+class UInteractionComponent;
+
 UCLASS()
 class LEVERPLAYER_API ALever : public AActor
 {
@@ -19,8 +24,15 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Lever")
+	UStaticMeshComponent* Lever;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Lever")
+	UInteractionComponent* InteractionComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lever")
+	ADoor* Door;
+
+	UFUNCTION()
+	void Interact(ALeverplayerCharacter* Character);
 };

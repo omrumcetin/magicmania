@@ -18,10 +18,22 @@ void ADoor::BeginPlay()
 	
 }
 
+void ADoor::OpenDoor()
+{
+}
+
+void ADoor::CloseDoor()
+{
+}
+
 // Called every frame
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ADoor::ToggleDoor()
+{
 }
 
