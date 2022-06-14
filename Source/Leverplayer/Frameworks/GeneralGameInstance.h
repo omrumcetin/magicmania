@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "OnlineSessionSettings.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "GeneralGameInstance.generated.h"
 
-/**
- * 
- */
+class FOnlineSessionSearchResult;
+
 UCLASS()
 class LEVERPLAYER_API UGeneralGameInstance : public UGameInstance
 {
@@ -22,15 +22,23 @@ protected:
     virtual void Init() override;
 
 	virtual void OnCreateSessionComplete(FName ServerName, bool Succeeded);
+	
+	virtual void OnFindSessionsComplete(bool Succeeded);
+
+	virtual void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
 
 protected:
 
-	IOnlineSessionPtr SessionPtr;
+    IOnlineSessionPtr SessionPtr;
 
+	TSharedPtr<FOnlineSessionSearch> SessionSearch;
 
-	UFUNCTION(BlueprintCallable, Category = "Server")
+public:
+
+	UFUNCTION(BlueprintCallable, Category = "Instance")
 	void CreateServer();
 
-	UFUNCTION(BlueprintCallable, Category = "Server")
-	void JoinServer();
+	UFUNCTION(BlueprintCallable, Category = "Instance")
+	void FindSessions();
+
 };

@@ -1,0 +1,1 @@
+"D:\Program Files\Epic Games\UE_5.0\Engine\Binaries\Win64\UnrealEditor.exe" "d:\Repos\mm\Leverplayer.uproject" -game -ResX=2554 -ResY=1352 -WinX=0 -WinY=20 -log -Windowed

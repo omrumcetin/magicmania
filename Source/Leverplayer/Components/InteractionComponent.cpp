@@ -2,7 +2,7 @@
 
 
 #include "Components/InteractionComponent.h"
-#include "LeverplayerCharacter.h"
+#include "Players/LeverplayerCharacter.h"
 #include "Leverplayer.h"
 #include "InteractionComponent.h"
 #include "UserInterface/InteractionWidget.h"

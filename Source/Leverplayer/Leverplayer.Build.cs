@@ -15,5 +15,6 @@ public class Leverplayer : ModuleRules
             "Leverplayer"
         });
 
+        DynamicallyLoadedModuleNames.Add("OnlineSubsystemNull");
     }
 }
