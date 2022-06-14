@@ -1,11 +1,13 @@
 The game consist of multiple elements : 
-Interaction component ray tracing used to able to achieve interactions through player. Can for sure use overlap but since its TPS, it will make much more sense to make it as with raytracing.<br>
 I have created widget to able to activate lever in game. Here is the overview of game.
 
 ![20220614_215142](https://user-images.githubusercontent.com/22418431/173666769-852bae8a-39c4-4367-a32e-2f779c246f7c.jpg)
 
 Here is the interaction component widget
 ![20220614_215244](https://user-images.githubusercontent.com/22418431/173666920-3238a49d-1e67-4790-aefb-9b401b53e7c9.jpg)
+
+Interaction component ray tracing used to able to achieve interactions through player. Can for sure use overlap but since its TPS, it will make much more sense to make it as with raytracing.<br>
+This component can be added any kind of actor that is required to be interacted by player, can create individual interact and focus actions, because they are all exposed in blueprints.
 
 I have tried to use multiple variations in code including advancing debugging console commands.
 ```C++
