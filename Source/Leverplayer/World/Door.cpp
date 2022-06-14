@@ -3,6 +3,7 @@
 
 #include "World/Door.h"
 #include "Components/StaticMeshComponent.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -15,6 +16,10 @@ ADoor::ADoor()
 
 	DoorSelf = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door"));
 	DoorSelf->SetupAttachment(DoorFrame);
+
+	bRequestedOpen = false;
+
+    bReplicates = true;
 }
 
 // Called when the game starts or when spawned
@@ -24,22 +29,29 @@ void ADoor::BeginPlay()
 	
 }
 
-void ADoor::OpenDoor()
+void ADoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ADoor, bRequestedOpen);
 }
 
-void ADoor::CloseDoor()
+void ADoor::SwapDoor()
 {
-}
-
-// Called every frame
-void ADoor::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+	if (bRequestedOpen)
+	{
+		OpenDoor();
+	}
+	else
+	{
+		CloseDoor();
+	}
 
 }
 
 void ADoor::ToggleDoor()
 {
+	bRequestedOpen = !bRequestedOpen ;
+	SwapDoor();
 }
 

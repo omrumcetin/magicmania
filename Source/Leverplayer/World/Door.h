@@ -15,12 +15,13 @@ public:
 	// Sets default values for this actor's properties
 	ADoor();
 
-private:
-	bool bDoorStatus;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY(Replicated, VisibleAnywhere, ReplicatedUsing = "SwapDoor", Category = "Door")
+	bool bRequestedOpen;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category	= "Door")
 	UStaticMeshComponent* DoorFrame;
@@ -28,15 +29,21 @@ protected:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Door")
 	UStaticMeshComponent* DoorSelf;
 
-    UFUNCTION()
+	//UFUNCTION(Server, Reliable, WithValidation)
+	//void ServerToggleDoor();
+
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
+
+    UFUNCTION(BlueprintImplementableEvent)
     void OpenDoor();
 
-    UFUNCTION()
+    UFUNCTION(BlueprintImplementableEvent)
     void CloseDoor();
 
+	UFUNCTION()
+	void SwapDoor();
+
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
 	void ToggleDoor();

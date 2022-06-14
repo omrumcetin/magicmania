@@ -48,6 +48,9 @@ public:
 
 	FORCEINLINE UInteractionComponent* GetCurrentInteractable() const { return InteractionData.LastSeenInteractionComponent; };
 
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerInteract();
+
     void PerformInteractionCheck();
 
     void CouldntFindInteractable();

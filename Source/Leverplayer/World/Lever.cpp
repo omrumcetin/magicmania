@@ -19,6 +19,7 @@ ALever::ALever()
 	InteractionComponent->InteractionDistance = 400.f;
 	InteractionComponent->InteractiveNameText = FText::FromString("Lever");
 	InteractionComponent->InteractiveActionText = FText::FromString("Use");
+
 }
 
 // Called when the game starts or when spawned

@@ -143,6 +143,16 @@ void ALeverplayerCharacter::MoveRight(float Value)
 	}
 }
 
+void ALeverplayerCharacter::ServerInteract_Implementation()
+{
+    Interact();
+}
+
+bool ALeverplayerCharacter::ServerInteract_Validate()
+{
+    return true;
+}
+
 void ALeverplayerCharacter::PerformInteractionCheck()
 {
     if (GetController() == nullptr)
@@ -239,6 +249,11 @@ void ALeverplayerCharacter::Interact()
     UInteractionComponent* interactable = GetCurrentInteractable();
     if (!interactable)
     {
+        return;
+    }
+    if (!HasAuthority())
+    {
+        ServerInteract();
         return;
     }
     interactable->Interact(this);
