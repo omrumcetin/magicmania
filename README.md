@@ -1,5 +1,6 @@
-The game consist of multiple elements : 
+The game consist of multiple elements : <br>
 I have created widget to able to activate lever in game. Here is the overview of game.
+Lever and door interaction can be done by any player.
 
 ![20220614_215142](https://user-images.githubusercontent.com/22418431/173666769-852bae8a-39c4-4367-a32e-2f779c246f7c.jpg)
 
@@ -23,3 +24,7 @@ Create and Join session made roughly, you can directly host and join from main m
 <br>
 Please use `GameClient.bat` to open game like client.<br>
 I wanted to create much more detailed showcase, but I dont want to deeply dive since this is not complete project, so I keep it simple.
+<br>
+PS:<br>
+Current game mihgt have some couple of bugs, but this assessment aim has to be testing how I'm using the unreal engine with the multiple aspects.
+<br>
