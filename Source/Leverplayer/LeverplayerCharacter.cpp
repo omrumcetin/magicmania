@@ -55,7 +55,7 @@ ALeverplayerCharacter::ALeverplayerCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
     //Optimization for checking frequency
-    InteractionCheckFrequency = 0.5f;
+    InteractionCheckFrequency = 0.1f;
     InteractionCheckDistance = 500.f;
 }
 

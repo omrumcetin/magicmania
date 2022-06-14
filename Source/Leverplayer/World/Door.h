@@ -22,6 +22,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category	= "Door")
+	UStaticMeshComponent* DoorFrame;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Door")
+	UStaticMeshComponent* DoorSelf;
+
     UFUNCTION()
     void OpenDoor();
 
